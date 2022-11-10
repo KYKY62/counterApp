@@ -1,6 +1,7 @@
-import 'package:counter_app/StateFull/counter.dart';
-import 'package:counter_app/GetX/counter_with_getx.dart';
+import 'package:counter_app/routes/page_route.dart';
+import 'package:counter_app/routes/route_name.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,9 +12,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
+    return GetMaterialApp(
+      home: const HomePage(),
       debugShowCheckedModeBanner: false,
+      getPages: AppPage.pageName,
     );
   }
 }
@@ -35,11 +37,7 @@ class HomePage extends StatelessWidget {
             Material(
               color: Colors.amber,
               child: InkWell(
-                onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Counter(),
-                    )),
+                onTap: () => Get.toNamed(RouteName.counter),
                 child: const SizedBox(
                   width: 200,
                   height: 40,
@@ -56,11 +54,7 @@ class HomePage extends StatelessWidget {
             Material(
               color: Colors.purple,
               child: InkWell(
-                onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => CounterWithGetx(),
-                    )),
+                onTap: () => Get.toNamed(RouteName.counterGetX),
                 child: const SizedBox(
                   width: 200,
                   height: 40,
