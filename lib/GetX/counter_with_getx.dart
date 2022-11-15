@@ -7,9 +7,9 @@ import 'package:get/get.dart';
 class CounterWithGetx extends StatelessWidget {
   CounterWithGetx({Key? key}) : super(key: key);
 
-  final timA = Get.put(CounterController(), tag: "timA");
-  final timB = Get.put(CounterController(), tag: "timB");
-  final timC = Get.put(CounterController(), tag: "timC");
+  final timA = Get.find<CounterController>(tag: "timA");
+  final timB = Get.find<CounterController>(tag: "timB");
+  final timC = Get.find<CounterController>(tag: "timC");
 
   @override
   Widget build(BuildContext context) {
